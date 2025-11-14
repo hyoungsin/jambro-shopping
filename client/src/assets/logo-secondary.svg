@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bagBody" x1="20" y1="20" x2="140" y2="140" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DC4FFF"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="bagSide" x1="40" y1="50" x2="110" y2="150" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F472B6"/>
+      <stop offset="1" stop-color="#C026D3"/>
+    </linearGradient>
+    <linearGradient id="handle" x1="60" y1="30" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="10" y1="150" x2="150" y2="150" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="badge" x1="70" y1="70" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FDE68A"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="160" height="160" rx="18" fill="#F5F3FF"/>
+  <path d="M24 134C54 150 106 150 136 134" stroke="url(#floor)" stroke-width="14" stroke-linecap="round"/>
+  <path d="M52 60L38 122C37 128 41 134 47 136L103 152C109 154 115 150 117 144L132 92C134 84 128 76 120 74L67 62C62 61 55 52 52 60Z" fill="url(#bagBody)"/>
+  <path d="M52 60L41 114C40 120 44 126 50 128L97 142C103 144 109 140 111 134L122 92C124 84 118 76 110 74L61 62C56 61 54 56 52 60Z" fill="url(#bagSide)"/>
+  <path d="M68 56C67 47 68 32 84 32C100 32 100 52 100 60" stroke="url(#handle)" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="90" cy="95" r="18" fill="url(#badge)"/>
+  <path d="M82 96L88 102L99 88" stroke="#312E81" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
