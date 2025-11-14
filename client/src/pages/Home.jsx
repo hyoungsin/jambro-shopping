@@ -193,17 +193,6 @@ export default function Home() {
 
           {products.length > 0 && (
             <section className="products">
-              <header className="products__header">
-                <div>
-                  <h2 className="products__title">{selectedGeneration}</h2>
-                  <p className="products__subtitle">최신 트렌드의 패션 의류 · 총 {products.length}개</p>
-                </div>
-                {/* 정렬 기능은 미구현으로 인해 숨김 처리 */}
-                {/* <button type="button" className="outline-button">
-                  신상품순
-                </button> */}
-              </header>
-
               <div className="products__grid">
                 {products.map((product) => (
                   <article 
