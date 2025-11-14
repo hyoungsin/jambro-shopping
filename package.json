@@ -4,6 +4,7 @@
   "private": true,
   "description": "Jambro Shopping Mall - Monorepo",
   "scripts": {
+    "postinstall": "cd server && npm install",
     "start": "cd server && node src/server.js",
     "dev": "cd server && npm run dev"
   },
