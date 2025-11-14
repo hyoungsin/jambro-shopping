@@ -24,8 +24,9 @@ async function start() {
   const server = http.createServer(app);
   
   // 서버 시작 및 포트 리스닝
-  server.listen(PORT, () => {
-    console.log(`Server listening on http://localhost:${PORT}`);
+  // Heroku에서는 0.0.0.0에 바인딩해야 외부 요청을 받을 수 있습니다
+  server.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server listening on port ${PORT}`);
   });
 }
 
