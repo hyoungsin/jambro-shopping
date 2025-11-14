@@ -191,20 +191,21 @@ export default function Home() {
             </div>
           </aside> */}
 
-          <section className="products">
-            <header className="products__header">
-              <div>
-                <h2 className="products__title">{selectedGeneration}</h2>
-                <p className="products__subtitle">최신 트렌드의 패션 의류 · 총 {products.length}개</p>
-              </div>
-              {/* 정렬 기능은 미구현으로 인해 숨김 처리 */}
-              {/* <button type="button" className="outline-button">
-                신상품순
-              </button> */}
-            </header>
+          {products.length > 0 && (
+            <section className="products">
+              <header className="products__header">
+                <div>
+                  <h2 className="products__title">{selectedGeneration}</h2>
+                  <p className="products__subtitle">최신 트렌드의 패션 의류 · 총 {products.length}개</p>
+                </div>
+                {/* 정렬 기능은 미구현으로 인해 숨김 처리 */}
+                {/* <button type="button" className="outline-button">
+                  신상품순
+                </button> */}
+              </header>
 
-            <div className="products__grid">
-              {products.length > 0 && products.map((product) => (
+              <div className="products__grid">
+                {products.map((product) => (
                   <article 
                     key={product._id} 
                     className="product"
@@ -244,10 +245,10 @@ export default function Home() {
                       <p className="product__price">₩{product.price.toLocaleString()}</p>
                     </div>
                   </article>
-                ))
-              )}
-            </div>
-          </section>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
       </main>
     </div>
