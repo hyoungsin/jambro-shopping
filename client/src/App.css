@@ -258,6 +258,22 @@ button {
   border-radius: 24px;
   margin-bottom: 36px;
   gap: 32px;
+  transition: background 0.3s ease;
+}
+
+/* Z세대 배경색 (초록색) */
+.hero--z {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.12), rgba(21, 128, 61, 0.12));
+}
+
+/* M세대 배경색 (네이비) */
+.hero--m {
+  background: linear-gradient(90deg, rgba(30, 41, 59, 0.12), rgba(15, 23, 42, 0.12));
+}
+
+/* 영포티 배경색 (주황색) */
+.hero--youngforty {
+  background: linear-gradient(90deg, rgba(234, 88, 12, 0.12), rgba(194, 65, 12, 0.12));
 }
 
 .hero__content {

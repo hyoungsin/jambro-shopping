@@ -143,7 +143,7 @@ export default function Home() {
         onGenerationChange={handleGenerationChange}
       />
       <main className="main">
-        <section className="hero">
+        <section className={`hero hero--${selectedGeneration === 'M세대' ? 'm' : selectedGeneration === '영포티' ? 'youngforty' : 'z'}`}>
           <div className="hero__content">
             <div className="hero__text">
               <h2 className="hero__headline">세대별 트렌디 쇼핑</h2>
@@ -204,20 +204,7 @@ export default function Home() {
             </header>
 
             <div className="products__grid">
-              {allProducts.length === 0 ? (
-                <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '60px 20px', color: '#94a3b8' }}>
-                  등록된 상품이 없습니다.
-                </div>
-              ) : products.length === 0 ? (
-                <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '60px 20px', color: '#94a3b8' }}>
-                  {selectedGeneration} 상품이 없습니다.
-                  <br />
-                  <small style={{ fontSize: '14px', marginTop: '8px', display: 'block' }}>
-                    (전체 {allProducts.length}개 상품 중 {selectedGeneration} 상품이 없습니다)
-                  </small>
-                </div>
-              ) : (
-                products.map((product) => (
+              {products.length > 0 && products.map((product) => (
                   <article 
                     key={product._id} 
                     className="product"
