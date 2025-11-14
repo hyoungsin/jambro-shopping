@@ -11,8 +11,16 @@ import { notFoundHandler, errorHandler } from './middlewares/errorHandler.js';
 
 const app = express();
 
-// CORS 설정 - 모든 도메인에서의 요청 허용
-app.use(cors());
+// CORS 설정 - 환경변수에서 프론트엔드 URL 가져오기
+const FRONTEND_URL = process.env.FRONTEND_URL || '*';
+const corsOptions = {
+  origin: FRONTEND_URL === '*' ? true : [FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3000'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
 
 // JSON 요청 본문 파싱 미들웨어
 app.use(express.json());
