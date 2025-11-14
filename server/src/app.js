@@ -11,10 +11,45 @@ import { notFoundHandler, errorHandler } from './middlewares/errorHandler.js';
 
 const app = express();
 
-// CORS 설정 - 환경변수에서 프론트엔드 URL 가져오기
-const FRONTEND_URL = process.env.FRONTEND_URL || '*';
+// CORS 설정 - Vercel 도메인과 로컬 개발 환경 허용
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'http://localhost:5174',
+  // Vercel 도메인 패턴 허용
+  /^https:\/\/jambro-shopping.*\.vercel\.app$/,
+  /^https:\/\/.*-hyoungsin-ohs-projects\.vercel\.app$/,
+];
+
+// 환경변수에 FRONTEND_URL이 있으면 추가
+if (process.env.FRONTEND_URL) {
+  allowedOrigins.push(process.env.FRONTEND_URL);
+}
+
 const corsOptions = {
-  origin: FRONTEND_URL === '*' ? true : [FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3000'],
+  origin: (origin, callback) => {
+    // origin이 없는 경우 (같은 도메인 요청 또는 Postman 등) 허용
+    if (!origin) {
+      return callback(null, true);
+    }
+    
+    // 허용된 origin인지 확인
+    const isAllowed = allowedOrigins.some(allowed => {
+      if (typeof allowed === 'string') {
+        return origin === allowed;
+      }
+      if (allowed instanceof RegExp) {
+        return allowed.test(origin);
+      }
+      return false;
+    });
+    
+    if (isAllowed) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
