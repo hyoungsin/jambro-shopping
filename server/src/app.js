@@ -20,6 +20,11 @@ app.use(express.json());
 // HTTP 요청 로깅 미들웨어 (개발 모드)
 app.use(morgan('dev'));
 
+// 루트 경로 테스트
+app.get('/', (req, res) => {
+  res.json({ message: 'Jambro Shopping Mall API', status: 'running' });
+});
+
 // 헬스 체크 엔드포인트 - 서버 상태 확인용
 app.get('/health', (req, res) => {
   res.json({ ok: true });
