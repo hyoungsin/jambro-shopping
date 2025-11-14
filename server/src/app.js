@@ -12,9 +12,11 @@ import { notFoundHandler, errorHandler } from './middlewares/errorHandler.js';
 const app = express();
 
 // CORS 설정 - 환경변수에서 프론트엔드 URL 가져오기
-const FRONTEND_URL = process.env.FRONTEND_URL || '*';
+const FRONTEND_URL = process.env.FRONTEND_URL;
 const corsOptions = {
-  origin: FRONTEND_URL === '*' ? true : [FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3000'],
+  origin: FRONTEND_URL 
+    ? [FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3000']
+    : true, // 환경변수가 없으면 모든 origin 허용
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
